@@ -188,13 +188,11 @@ class GaussianMixture():
         # Init step
         self.initialisation(data=data)
 
-        train_step = self.training_step()
-
         # initializing trainable variables
         batch_idx = np.random.choice(range(len(data)), size=self.BATCH_SIZE, replace=False)
 
         self.input = data[batch_idx]
-
+        train_step = self.training_step()
         previous_likelihood = -np.inf
 
         # training loop
